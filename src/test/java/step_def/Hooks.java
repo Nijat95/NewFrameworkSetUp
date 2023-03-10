@@ -1,6 +1,6 @@
 package step_def;
 
-import Utils.Driver;
+import utils.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -14,7 +14,7 @@ public class Hooks {
     }
     @After
     public void tearDown(Scenario scenario) {
-        if(Scenario.isFailed() && Driver.getReference() != null){
+        if(scenario.isFailed() && Driver.getReference() != null){
             byte[] screenshot = ((TakesScreenshot) Driver.getDriver())
                     .getScreenshotAs(OutputType.BYTES);
         scenario.attach(screenshot,"image/png","screenshot");
