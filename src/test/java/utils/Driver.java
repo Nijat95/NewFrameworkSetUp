@@ -3,7 +3,6 @@ package utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Driver {
@@ -16,20 +15,18 @@ public class Driver {
     }
    public static WebDriver getDriver(){
         if(driver==null){
-            switch (Config.getProperty("browser")) {
-                case "chrome":
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-
-                    case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-
-                case "edge":
-                    WebDriverManager.edgedriver().setup();
-                    driver = new EdgeDriver();
-            }
-            driver.manage().window().maximize();
+           switch (Config.getProperty("browser")){
+               case "chrome" ->{
+                   WebDriverManager.chromedriver().setup();
+                   driver = new ChromeDriver();
+               }case "firefox" ->{
+                   WebDriverManager.firefoxdriver().setup();
+                   driver = new FirefoxDriver();
+               }case "edge" ->{
+                   WebDriverManager.edgedriver().setup();
+                   driver = new FirefoxDriver();
+               }
+           }
         }
 
        return driver;

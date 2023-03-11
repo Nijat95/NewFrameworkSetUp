@@ -2,11 +2,13 @@ package step_def;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import utils.Config;
+import utils.Driver;
 
 public class SmartBearLoginSteps {
     @When("User is on SmartBear login Page")
     public void user_is_on_smart_bear_login_page() {
-
+        Driver.getDriver().get(Config.getProperty("noaa"));
     }
     @When("User enters correct username")
     public void user_enters_correct_username() {
